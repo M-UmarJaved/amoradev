@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<defs><linearGradient id="zg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000"/><stop offset=".28" stop-color="#2a0414"/><stop offset=".62" stop-color="#b0014a"/><stop offset=".86" stop-color="#f0005f"/><stop offset="1" stop-color="#ff0a64"/></linearGradient>
+<mask id="zm"><rect width="200" height="200" fill="#fff"/><g fill="none" stroke="#000" stroke-width="10" stroke-linejoin="miter" stroke-miterlimit="1.5"><polyline points="-2,121 65,85 65,160 200,87"/><polyline points="120.5,117 120.5,46 172,18"/></g></mask></defs>
+<polygon points="98.5,3 184,51 184,149 98.5,197 14,149 14,51" fill="url(#zg)" mask="url(#zm)"/>
+</svg>

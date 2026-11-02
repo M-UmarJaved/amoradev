@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/work", "destination": "/portfolio/", "permanent": true },
+    { "source": "/services/software-mobile-app-maintenance", "destination": "/maintenance/", "permanent": true }
+  ]
+}
