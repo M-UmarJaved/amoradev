@@ -33,6 +33,7 @@
 .ri-chat-smile-2-line:before{content:"\eb6f"}
 .ri-check-line:before{content:"\eb7b"}
 .ri-checkbox-circle-fill:before{content:"\eb80"}
+.ri-checkbox-circle-line:before{content:"\eb81"}
 .ri-checkbox-multiple-line:before{content:"\eb89"}
 .ri-close-line:before{content:"\eb99"}
 .ri-cloud-line:before{content:"\eb9d"}
@@ -135,7 +136,9 @@
 .ri-server-line:before{content:"\f0e0"}
 .ri-settings-3-line:before{content:"\f0e6"}
 .ri-share-circle-line:before{content:"\f0f6"}
+.ri-shield-check-fill:before{content:"\f0ff"}
 .ri-shield-check-line:before{content:"\f100"}
+.ri-shield-star-line:before{content:"\f10a"}
 .ri-shield-user-line:before{content:"\f10c"}
 .ri-shopping-bag-3-line:before{content:"\f116"}
 .ri-shopping-cart-2-line:before{content:"\f11e"}
@@ -162,6 +165,7 @@
 .ri-user-heart-line:before{content:"\f263"}
 .ri-user-search-line:before{content:"\f26c"}
 .ri-user-star-line:before{content:"\f276"}
+.ri-verified-badge-line:before{content:"\f3e9"}
 .ri-vuejs-line:before{content:"\f2a6"}
 .ri-wallet-3-line:before{content:"\f2ac"}
 .ri-whatsapp-line:before{content:"\f2bc"}
