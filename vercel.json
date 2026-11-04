@@ -1,6 +1,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "rewrites": [
+    { "source": "/zt-forms/send.php", "destination": "/api/send" },
+    { "source": "/zt-forms/send", "destination": "/api/send" }
+  ],
   "redirects": [
     { "source": "/work", "destination": "/portfolio/", "permanent": true },
     { "source": "/services/software-mobile-app-maintenance", "destination": "/maintenance/", "permanent": true }

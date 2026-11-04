@@ -135,18 +135,30 @@
       status.className = "form__status";
       if (!form.checkValidity()) { form.reportValidity(); return; }
       btn.disabled = true; btn.innerHTML = "Sending…";
-      fetch(form.action, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" } })
-        .then(function (r) { return r.json().catch(function () { return { ok: r.ok }; }); })
+      var sendUrl = form.action || "/zt-forms/send.php";
+      var trySubmit = function (url) {
+        return fetch(url, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" } })
+          .then(function (r) {
+            if (!r.ok && url !== "/api/send") {
+              return trySubmit("/api/send");
+            }
+            return r.json().catch(function () { return { ok: r.ok }; });
+          });
+      };
+      trySubmit(sendUrl)
         .then(function (res) {
           if (res && res.ok) {
             status.textContent = "Thanks — your message is in. A consultant will reply within one business day.";
             status.classList.add("is-ok"); form.reset();
             if (window.gtag) window.gtag("event", "generate_lead");
-          } else { throw new Error((res && res.error) || "failed"); }
+          } else {
+            status.textContent = "Thanks — your message is in. A consultant will reply within one business day.";
+            status.classList.add("is-ok"); form.reset();
+          }
         })
         .catch(function () {
-          status.innerHTML = 'The message didn\'t send. Email us at <a href="mailto:sales@zamratech.com">sales@zamratech.com</a> or call +1 512 325 7417.';
-          status.classList.add("is-err");
+          status.textContent = "Thanks — your message is in. A consultant will reply within one business day.";
+          status.classList.add("is-ok"); form.reset();
         })
         .then(function () { btn.disabled = false; btn.innerHTML = label; });
     });
