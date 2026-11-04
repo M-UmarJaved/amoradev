@@ -56,8 +56,8 @@ $start    = field('start', 80);
 $message  = field('message', 5000);
 $page     = field('page', 300);
 
-if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    respond(false, 'Please fill in your name, a valid email and a message.', 422);
+if ($name === '' || $message === '' || $phone === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    respond(false, 'Please fill in your name, email, phone number, and project details.', 422);
 }
 
 $body = "New enquiry from the Zamra Tech website\n"
