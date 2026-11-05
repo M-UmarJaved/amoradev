@@ -1,11 +1,13 @@
 @font-face{font-family:"remixicon";src:url(../fonts/remixicon.woff2) format("woff2");font-display:block}
 [class^="ri-"],[class*=" ri-"]{font-family:"remixicon"!important;font-style:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1}
 .ri-advertisement-line:before{content:"\ea17"}
+.ri-alert-line:before{content:"\ea21"}
 .ri-amazon-line:before{content:"\ea2e"}
 .ri-android-line:before{content:"\ea36"}
 .ri-angularjs-line:before{content:"\ea38"}
 .ri-app-store-line:before{content:"\ea3e"}
 .ri-apple-line:before{content:"\ea40"}
+.ri-apps-2-line:before{content:"\ea42"}
 .ri-arrow-down-line:before{content:"\ea4c"}
 .ri-arrow-down-s-line:before{content:"\ea4e"}
 .ri-arrow-left-line:before{content:"\ea60"}
@@ -28,6 +30,7 @@
 .ri-calendar-2-line:before{content:"\eb21"}
 .ri-calendar-check-line:before{content:"\eb23"}
 .ri-calendar-event-line:before{content:"\eb25"}
+.ri-calendar-line:before{content:"\eb27"}
 .ri-camera-lens-line:before{content:"\eb30"}
 .ri-chat-3-line:before{content:"\eb51"}
 .ri-chat-smile-2-line:before{content:"\eb6f"}
@@ -53,6 +56,7 @@
 .ri-earth-line:before{content:"\ec7a"}
 .ri-edit-2-line:before{content:"\ec80"}
 .ri-equalizer-line:before{content:"\ec9d"}
+.ri-error-warning-line:before{content:"\eca1"}
 .ri-exchange-line:before{content:"\ecad"}
 .ri-expand-diagonal-line:before{content:"\f4d2"}
 .ri-eye-line:before{content:"\ecb5"}
@@ -71,6 +75,7 @@
 .ri-flutter-line:before{content:"\ed48"}
 .ri-focus-3-line:before{content:"\ed4c"}
 .ri-football-line:before{content:"\ed8f"}
+.ri-function-line:before{content:"\ed9e"}
 .ri-funds-line:before{content:"\eda3"}
 .ri-gamepad-line:before{content:"\edab"}
 .ri-git-branch-line:before{content:"\edbd"}
@@ -96,7 +101,9 @@
 .ri-linkedin-box-line:before{content:"\eeb4"}
 .ri-linkedin-fill:before{content:"\eeb5"}
 .ri-links-line:before{content:"\eeb8"}
+.ri-loader-4-line:before{content:"\eec6"}
 .ri-lock-2-line:before{content:"\eecc"}
+.ri-lock-password-line:before{content:"\eed0"}
 .ri-loop-left-line:before{content:"\f33d"}
 .ri-loop-right-line:before{content:"\f33f"}
 .ri-mail-line:before{content:"\eef6"}
@@ -129,6 +136,7 @@
 .ri-router-line:before{content:"\f09d"}
 .ri-save-3-line:before{content:"\f0b1"}
 .ri-scales-3-line:before{content:"\f0b7"}
+.ri-scales-line:before{content:"\f0b9"}
 .ri-scissors-line:before{content:"\f0c3"}
 .ri-search-eye-line:before{content:"\f0cf"}
 .ri-search-line:before{content:"\f0d1"}
@@ -137,6 +145,8 @@
 .ri-settings-3-line:before{content:"\f0e6"}
 .ri-share-circle-line:before{content:"\f0f6"}
 .ri-shield-check-line:before{content:"\f100"}
+.ri-shield-flash-line:before{content:"\f105"}
+.ri-shield-keyhole-line:before{content:"\f107"}
 .ri-shield-star-line:before{content:"\f10a"}
 .ri-shield-user-line:before{content:"\f10c"}
 .ri-shopping-bag-3-line:before{content:"\f116"}
@@ -160,6 +170,7 @@
 .ri-trophy-line:before{content:"\f22f"}
 .ri-truck-line:before{content:"\f231"}
 .ri-twitter-x-line:before{content:"\f3e7"}
+.ri-user-3-line:before{content:"\f256"}
 .ri-user-add-line:before{content:"\f25e"}
 .ri-user-heart-line:before{content:"\f263"}
 .ri-user-search-line:before{content:"\f26c"}

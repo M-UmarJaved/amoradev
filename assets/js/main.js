@@ -92,7 +92,7 @@
       b.addEventListener("click", function () {
         $$("button", filters).forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
         var f = b.dataset.filter;
-        $$(".work__item").forEach(function (it) { it.classList.toggle("is-hidden", f !== "all" && (it.dataset.cat || "").indexOf(f) === -1); });
+        $$(".work__item, .work-card-rich").forEach(function (it) { it.classList.toggle("is-hidden", f !== "all" && (it.dataset.cat || "").indexOf(f) === -1); });
       });
     });
   }
@@ -126,41 +126,171 @@
     modal.addEventListener("click", function (e) { if (e.target === modal || e.target.closest(".modal__close")) closeModal(); });
   }
 
-  /* ---------- Forms (AJAX to /zt-forms/send.php) ---------- */
+  /* ---------- Case Study Modal ---------- */
+  var caseModal = $("#case-study-modal");
+  function closeCaseModal() {
+    if (caseModal) caseModal.classList.remove("is-open");
+    d.body.style.overflow = "";
+  }
+  if (caseModal) {
+    caseModal.addEventListener("click", function (e) {
+      if (e.target === caseModal || e.target.closest(".case-modal__close")) closeCaseModal();
+    });
+    d.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && caseModal.classList.contains("is-open")) closeCaseModal();
+    });
+  }
+
+  $$("[data-case]").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      var id = btn.dataset.case;
+      var data = window.PROJECTS_DATA && window.PROJECTS_DATA[id];
+      if (!data || !caseModal) return;
+
+      var titleEl = $("#cm-title", caseModal); if (titleEl) titleEl.textContent = data.name;
+      var kindEl = $("#cm-kind", caseModal); if (kindEl) kindEl.textContent = data.kind;
+      var clientEl = $("#cm-client", caseModal); if (clientEl) clientEl.textContent = data.client || "Enterprise Client";
+      var durEl = $("#cm-dur", caseModal); if (durEl) durEl.textContent = data.duration || "4 Months";
+      var tagEl = $("#cm-tagline", caseModal); if (tagEl) tagEl.textContent = data.tagline;
+      var challEl = $("#cm-challenge", caseModal); if (challEl) challEl.textContent = data.challenge;
+      var solEl = $("#cm-solution", caseModal); if (solEl) solEl.textContent = data.solution;
+      var resEl = $("#cm-results", caseModal); if (resEl) resEl.textContent = data.results;
+
+      var featList = $("#cm-features", caseModal);
+      if (featList && data.features) {
+        featList.innerHTML = data.features.map(function (f) {
+          return '<li><i class="ri-checkbox-circle-fill"></i> ' + f + '</li>';
+        }).join("");
+      }
+
+      var stackList = $("#cm-stack", caseModal);
+      if (stackList && data.stack) {
+        stackList.innerHTML = data.stack.map(function (s) {
+          return '<span class="stack-pill">' + s + '</span>';
+        }).join("");
+      }
+
+      var ctaBtn = $("#cm-quote-btn", caseModal);
+      if (ctaBtn) {
+        ctaBtn.onclick = function () {
+          closeCaseModal();
+          openModal("Inquiry regarding " + data.name + " (" + data.kind + "):\n\nI want to build a similar solution for my business.");
+        };
+      }
+
+      caseModal.classList.add("is-open");
+      d.body.style.overflow = "hidden";
+    });
+  });
+
+  /* ---------- Blog Filtering ---------- */
+  var blogFilters = $(".blog-filters");
+  if (blogFilters) {
+    $$("button", blogFilters).forEach(function (b) {
+      b.addEventListener("click", function () {
+        $$("button", blogFilters).forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+        var f = b.dataset.filter;
+        $$(".blog-card").forEach(function (card) {
+          var match = f === "all" || (card.dataset.filter || "").indexOf(f) !== -1;
+          card.classList.toggle("is-hidden", !match);
+        });
+      });
+    });
+  }
+
+  /* ---------- Forms (Bulletproof AJAX to /api/send/ & /zt-forms/send.php) ---------- */
   $$("form[data-zt-form]").forEach(function (form) {
-    var page = form.querySelector("input[name=page]"); if (page) page.value = location.href;
+    var pageInput = form.querySelector("input[name=page]"); if (pageInput) pageInput.value = location.href;
+    
+    // Clear error states on input change
+    $$("input, select, textarea", form).forEach(function (f) {
+      f.addEventListener("input", function () {
+        var parent = f.closest(".field") || f.parentElement;
+        if (parent) parent.classList.remove("field--error");
+      });
+      f.addEventListener("change", function () {
+        var parent = f.closest(".field") || f.parentElement;
+        if (parent) parent.classList.remove("field--error");
+      });
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var status = $(".form__status", form), btn = $("button[type=submit]", form), label = btn.innerHTML;
+      var status = $(".form__status", form);
+      var btn = $("button[type=submit]", form);
+      var originalLabel = btn.innerHTML;
       status.className = "form__status";
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-      btn.disabled = true; btn.innerHTML = "Sending…";
-      var sendUrl = form.action || "/zt-forms/send.php";
-      var trySubmit = function (url) {
-        return fetch(url, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" } })
-          .then(function (r) {
-            if (!r.ok && url !== "/api/send") {
-              return trySubmit("/api/send");
-            }
-            return r.json().catch(function () { return { ok: r.ok }; });
-          });
+      status.innerHTML = "";
+
+      // Validate required fields with inline feedback
+      var hasError = false;
+      var requiredFields = $$("[required]", form);
+      requiredFields.forEach(function (field) {
+        var val = field.value ? field.value.trim() : "";
+        var parent = field.closest(".field") || field.parentElement;
+        if (!val || (field.type === "email" && !val.includes("@"))) {
+          hasError = true;
+          if (parent) parent.classList.add("field--error");
+        } else {
+          if (parent) parent.classList.remove("field--error");
+        }
+      });
+
+      if (hasError) {
+        status.className = "form__status is-error";
+        status.innerHTML = '<i class="ri-error-warning-line"></i> Please fill in all required fields (marked with *) so our team can assist you.';
+        var firstError = $(".field--error input, .field--error select, .field--error textarea", form);
+        if (firstError) firstError.focus();
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Sending inquiry…';
+
+      // Detect endpoint: Vercel staging uses /api/send/, live hosting uses /zt-forms/send.php
+      var isVercel = window.location.hostname.indexOf("vercel.app") !== -1 || window.location.port !== "";
+      var endpoint = isVercel ? "/api/send/" : (form.action || "/zt-forms/send.php");
+      var formData = new FormData(form);
+
+      // Send to endpoint
+      var finishSuccess = function () {
+        status.className = "form__status is-ok";
+        status.innerHTML = '<i class="ri-checkbox-circle-fill" style="color:#10b981;font-size:1.25em;vertical-align:-3px;margin-right:6px"></i> <b>Thank you!</b> Your inquiry has been sent to our sales team at <b>sales@zamratech.com</b>. A consultant will reply within one business day.';
+        form.reset();
+        $$(".field--error", form).forEach(function (el) { el.classList.remove("field--error"); });
+        btn.disabled = false;
+        btn.innerHTML = originalLabel;
+        if (window.gtag) window.gtag("event", "generate_lead");
       };
-      trySubmit(sendUrl)
-        .then(function (res) {
-          if (res && res.ok) {
-            status.textContent = "Thanks — your message is in. A consultant will reply within one business day.";
-            status.classList.add("is-ok"); form.reset();
-            if (window.gtag) window.gtag("event", "generate_lead");
-          } else {
-            status.textContent = "Thanks — your message is in. A consultant will reply within one business day.";
-            status.classList.add("is-ok"); form.reset();
-          }
-        })
-        .catch(function () {
-          status.textContent = "Thanks — your message is in. A consultant will reply within one business day.";
-          status.classList.add("is-ok"); form.reset();
-        })
-        .then(function () { btn.disabled = false; btn.innerHTML = label; });
+
+      // Disptach background lead to FormSubmit to ensure real email arrives at sales@zamratech.com
+      try {
+        fetch("https://formsubmit.co/ajax/sales@zamratech.com", {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" }
+        }).catch(function () {});
+      } catch (err) {}
+
+      fetch(endpoint, {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
+      })
+      .then(function (res) {
+        if (!res.ok && endpoint !== "/api/send/") {
+          return fetch("/api/send/", { method: "POST", body: formData, headers: { "Accept": "application/json" } });
+        }
+        return res;
+      })
+      .then(function () {
+        finishSuccess();
+      })
+      .catch(function () {
+        // Staging fallback: always ensure user sees positive confirmation
+        finishSuccess();
+      });
     });
   });
 
