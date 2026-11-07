@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account Abstraction (ERC-4337): Bringing Web2 Simplicity to Web3 | Zamra Tech Blog</title>
+<meta name="description" content="How smart contract wallets, social logins, and gas sponsorship via paymasters are finally removing seed phrases and friction from crypto onboarding.">
+<link rel="canonical" href="https://zamratech.com/blog/account-abstraction-erc-4337-user-onboarding/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#07050b">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zamra Tech">
+<meta property="og:title" content="Account Abstraction (ERC-4337): Bringing Web2 Simplicity to Web3 | Zamra Tech Blog">
+<meta property="og:description" content="How smart contract wallets, social logins, and gas sponsorship via paymasters are finally removing seed phrases and friction from crypto onboarding.">
+<meta property="og:url" content="https://zamratech.com/blog/account-abstraction-erc-4337-user-onboarding/">
+<meta property="og:image" content="https://zamratech.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-site-verification" content="J2gggHNuBcWmG-yCcRulaPgY-lby4TqPXcgL-m9sBAY">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/unbounded-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/onest-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/icons.css?v=2.0.0">
+<link rel="stylesheet" href="/assets/css/main.css?v=2.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://zamratech.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://zamratech.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Account Abstraction (ERC-4337): Bringing Web2 Simplicity to Web3", "item": "https://zamratech.com"}]}, {"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Account Abstraction (ERC-4337): Bringing Web2 Simplicity to Web3", "description": "How smart contract wallets, social logins, and gas sponsorship via paymasters are finally removing seed phrases and friction from crypto onboarding.", "datePublished": "2024-10-01", "author": {"@type": "Organization", "name": "Zamra Tech", "url": "https://zamratech.com"}, "publisher": {"@type": "Organization", "name": "Zamra Tech", "logo": {"@type": "ImageObject", "url": "https://zamratech.com/assets/img/zamra-logo-512.png"}}}]</script>
+<script src="https://vai.me/widgets/badge.js?v=2" async></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="wrap">
+<div class="topbar__left"><a href="tel:+15123257417"><i class="ri-phone-line"></i>+1 512 325 7417</a><span class="hide-sm"><a href="mailto:sales@zamratech.com"><i class="ri-mail-line"></i>sales@zamratech.com</a></span></div>
+<div class="topbar__right"><a href="https://api.whatsapp.com/send?phone=14125895429&text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i>WhatsApp (+1 412 589 5429)</a><a href="https://calendly.com/mmammad786/30min" target="_blank" rel="noopener"><i class="ri-calendar-check-line"></i>Book a free call</a></div>
+</div></div>
+<header class="header"><div class="wrap">
+<a class="logo" href="/" aria-label="Zamra Tech home"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4d0c30"/><stop offset=".3" stop-color="#7d0a3e"/><stop offset=".62" stop-color="#c2014f"/><stop offset=".86" stop-color="#f0005f"/><stop offset="1" stop-color="#ff2a78"/></linearGradient><linearGradient id="eh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7aa9" stop-opacity=".9"/><stop offset=".6" stop-color="#ff7aa9" stop-opacity=".25"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="mh"><rect width="200" height="200" fill="#fff"/><g fill="none" stroke="#000" stroke-width="10" stroke-linejoin="miter" stroke-miterlimit="1.5"><polyline points="-2,121 65,85 65,160 200,87"/><polyline points="120.5,117 120.5,46 172,18"/></g></mask></defs><polygon points="98.5,3 184,51 184,149 98.5,197 14,149 14,51" fill="url(#gh)" mask="url(#mh)"/><polygon points="98.5,3 184,51 184,149 98.5,197 14,149 14,51" fill="none" stroke="url(#eh)" stroke-width="2.5" mask="url(#mh)"/></svg><b>Zamra<span>Tech</span></b></a>
+<nav class="nav" id="site-nav" aria-label="Primary"><ul>
+<li class="nav__item has-mega"><button class="nav__link" aria-expanded="false">Services<i class="ri-arrow-down-s-line"></i></button><div class="mega mega--with-feature">
+<div class="mega__feature"><h4 style="color:#fff">Build your product</h4><p>End-to-end design and engineering with dedicated sprint teams, full IP ownership, and zero technical debt.</p><a class="btn btn--pink btn--sm" href="/services/">Explore services</a></div>
+<div class="mega__cols mega__cols--3">
+  <div><h4><i class="ri-global-line"></i><a href="/services/web-development/">Web Development</a></h4><ul>
+    <li><a href="/services/net-development/">.NET Development</a></li>
+    <li><a href="/services/c-development/">C++ Development</a></li>
+    <li><a href="/services/node-js-development/">Node.js Development</a></li>
+    <li><a href="/services/php-development/">PHP Development</a></li>
+    <li><a href="/services/python-development/">Python Development</a></li>
+    <li><a href="/services/ruby-on-rails-developments/">Ruby on Rails</a></li>
+    <li><a href="/services/wordpress-development/">WordPress Development</a></li>
+  </ul></div>
+  <div><h4><i class="ri-smartphone-line"></i><a href="/services/mobile-app-development/">App Development</a></h4><ul>
+    <li><a href="/services/android-mobile-app-development/">Android App Dev</a></li>
+    <li><a href="/services/flutter-app-development/">Flutter Apps</a></li>
+    <li><a href="/services/ionic-app-development/">Ionic Apps</a></li>
+    <li><a href="/services/ios-application-development/">iOS App Dev</a></li>
+    <li><a href="/services/react-native-mobile-app-development/">React Native</a></li>
+  </ul></div>
+  <div><h4><i class="ri-gamepad-line"></i><a href="/services/game-development/">Game Development</a></h4><ul>
+    <li><a href="/services/2d-game-development/">2D Game Dev</a></li>
+    <li><a href="/services/2-5d-game-development/">2.5D Game Dev</a></li>
+    <li><a href="/services/3d-game-development/">3D Game Dev</a></li>
+    <li><a href="/services/digital-strategy-game-development/">Strategy Games</a></li>
+    <li><a href="/services/card-game-development/">Card Games</a></li>
+    <li><a href="/services/rpg-game-development/">RPG Game Dev</a></li>
+  </ul></div>
+</div>
+<div class="mega__foot"><a href="/services/">All services</a><a href="/industries/">Industries we serve</a><a href="/portfolio/">Recent work</a></div>
+</div></li>
+<li class="nav__item has-mega"><button class="nav__link" aria-expanded="false">Solutions<i class="ri-arrow-down-s-line"></i></button><div class="mega mega--with-feature">
+<div class="mega__feature"><h4 style="color:#fff">Enterprise Solutions</h4><p>Custom AI systems, enterprise software, cloud infrastructure, and blockchain tailored to your business operations.</p><a class="btn btn--pink btn--sm" href="/services/custom-software-development-2/">Explore solutions</a></div>
+<div class="mega__cols mega__cols--2">
+  <div><h4><i class="ri-cpu-line"></i>Emerging Technologies</h4><ul>
+    <li><a href="/services/artificial-intelligence-development/">AI &amp; LLM Development</a></li>
+    <li><a href="/services/blockchain-development/">Blockchain Solutions</a></li>
+    <li><a href="/services/nft-marketplace-development/">NFT Marketplaces</a></li>
+    <li><a href="/services/iot-development/">IoT Development</a></li>
+    <li><a href="/services/ar-vr-app-development/">AR/VR Development</a></li>
+  </ul></div>
+  <div><h4><i class="ri-building-4-line"></i>Cloud &amp; Systems</h4><ul>
+    <li><a href="/services/custom-software-development-2/">Custom Software</a></li>
+    <li><a href="/services/cloudops-and-deveops-development/">CloudOps &amp; DevOps</a></li>
+    <li><a href="/services/managed-cloud-hosting/">Managed Cloud Hosting</a></li>
+    <li><a href="/services/white-label-application/">White Label Applications</a></li>
+  </ul></div>
+</div>
+<div class="mega__foot"><a href="/services/custom-software-development-2/">Custom software</a><a href="/services/artificial-intelligence-development/">AI development</a><a href="/contact/">Discuss your project</a></div>
+</div></li>
+<li class="nav__item has-mega"><button class="nav__link" aria-expanded="false">Marketing<i class="ri-arrow-down-s-line"></i></button><div class="mega mega--with-feature">
+<div class="mega__feature"><h4 style="color:#fff">Grow &amp; Maintain</h4><p>Multichannel marketing to bring qualified users to your product, backed by 24/7 technical monitoring and maintenance.</p><a class="btn btn--pink btn--sm" href="/digital-marketing/">Marketing plans</a></div>
+<div class="mega__cols mega__cols--2">
+  <div><h4><i class="ri-megaphone-line"></i><a href="/digital-marketing/">Digital Marketing</a></h4><ul>
+    <li><a href="/digital-marketing/">Overview &amp; Retainers</a></li>
+    <li><a href="/digital-marketing/#web-marketing">SEO &amp; Website Marketing</a></li>
+    <li><a href="/digital-marketing/#app-marketing">Mobile App Marketing (ASO)</a></li>
+    <li><a href="/digital-marketing/#social-media">Social Media Marketing</a></li>
+    <li><a href="/digital-marketing/#ppc">PPC Ads (Google &amp; Meta)</a></li>
+  </ul></div>
+  <div><h4><i class="ri-tools-line"></i><a href="/maintenance/">Maintenance &amp; Support</a></h4><ul>
+    <li><a href="/maintenance/">Website Maintenance Plans</a></li>
+    <li><a href="/maintenance/#mobile-app">Mobile App Support</a></li>
+    <li><a href="/maintenance/">Security &amp; Uptime Monitoring</a></li>
+    <li><a href="/services/managed-cloud-hosting/">Cloud Hosting Support</a></li>
+  </ul></div>
+</div>
+<div class="mega__foot"><a href="/digital-marketing/">Digital marketing</a><a href="/maintenance/">Maintenance plans</a><a href="/contact/">Get a free quote</a></div>
+</div></li>
+<li class="nav__item has-mega"><button class="nav__link" aria-expanded="false">Staff Augmentation<i class="ri-arrow-down-s-line"></i></button><div class="mega mega--hire">
+<div class="mega__feature"><h4 style="color:#fff">Extend your team</h4><p>Vetted engineers who join your sprints, use your tools and report to you. We handle hiring, payroll and HR.</p><a class="btn btn--pink btn--sm" href="/staff-augmentation/">How it works</a></div>
+<div><ul class="mega__roles"><li><a href="/hire-developers/react-developers/">Hire React Developers</a></li><li><a href="/hire-developers/nodejs-developers/">Hire Node.js Developers</a></li><li><a href="/hire-developers/python-developers/">Hire Python Developers</a></li><li><a href="/hire-developers/dotnet-developers/">Hire .NET Developers</a></li><li><a href="/hire-developers/php-laravel-developers/">Hire PHP &amp; Laravel Developers</a></li><li><a href="/hire-developers/full-stack-developers/">Hire Full-Stack Developers</a></li><li><a href="/hire-developers/flutter-developers/">Hire Flutter Developers</a></li><li><a href="/hire-developers/react-native-developers/">Hire React Native Developers</a></li><li><a href="/hire-developers/ios-developers/">Hire iOS Developers</a></li><li><a href="/hire-developers/android-developers/">Hire Android Developers</a></li><li><a href="/hire-developers/ui-ux-designers/">Hire UI/UX Designers</a></li><li><a href="/hire-developers/qa-engineers/">Hire QA Engineers</a></li><li><a href="/hire-developers/devops-engineers/">Hire DevOps Engineers</a></li><li><a href="/hire-developers/ai-ml-engineers/">Hire AI/ML Engineers</a></li><li><a href="/hire-developers/blockchain-developers/">Hire Blockchain Developers</a></li><li><a href="/hire-developers/game-developers/">Hire Game Developers</a></li></ul></div>
+<div class="mega__foot"><a href="/staff-augmentation/">Staff augmentation</a><a href="/staff-augmentation/dedicated-teams/">Dedicated teams</a><a href="/staff-augmentation/engagement-models/">Engagement models</a><a href="/hire-developers/#builder">Build your team</a></div>
+</div></li>
+<li class="nav__item"><a class="nav__link" href="/portfolio/">Work</a></li>
+<li class="nav__item"><a class="nav__link" href="/industries/">Industries</a></li>
+<li class="nav__item"><a class="nav__link" href="/about/">About</a></li>
+<li class="nav__item"><a class="nav__link" href="/blog/" aria-current="page">Blog</a></li>
+<li class="nav__item"><a class="nav__link" href="/contact/">Contact</a></li>
+</ul>
+<div class="nav__cta"><button class="btn btn--pink btn--sm" data-open-quote>Talk to a consultant</button></div>
+</nav>
+<button class="burger" aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><i class="ri-menu-3-line"></i></button>
+</div></header>
+<main id="main">
+
+<section class="phero" style="padding-bottom:32px"><div class="wrap"><ol class="crumbs"><li><a href="/">Home</a></li><li><a href="/blog/">Blog</a></li><li aria-current="page">Account Abstraction (ERC-4337): Bringing Web2 Simplicity to Web3</li></ol>
+<span class="work-card-rich__kind" style="margin-bottom:12px;display:inline-block">Blockchain & Web3</span>
+<h1 style="max-width:880px;margin-bottom:16px">Account Abstraction (ERC-4337): Bringing Web2 Simplicity to Web3</h1>
+<div class="article-meta" style="justify-content:flex-start">
+  <span><i class="ri-user-3-line"></i> Zamra Tech Engineering</span>
+  <span><i class="ri-calendar-line"></i> July 28, 2024</span>
+  <span><i class="ri-time-line"></i> 7 min read</span>
+</div>
+</div></section>
+<section class="section" style="padding-top:16px"><div class="wrap">
+<div class="article-wrap">
+  <div class="article-featured-img"><img src="/assets/img/blog/fintech-mobile.webp" alt="Account Abstraction (ERC-4337): Bringing Web2 Simplicity to Web3" loading="eager"></div>
+  <div class="article-body">
+    
+<p class="lead">For years, 24-word seed phrases and complex gas token requirements prevented mainstream consumer adoption. Account Abstraction turns user wallets into programmable smart contracts.</p>
+
+  </div>
+  <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--line)">
+    <b style="font-size:0.85rem;color:var(--ink-2);margin-right:10px">Topics:</b>
+    <div style="display:inline-flex;flex-wrap:wrap;gap:6px"><span class="stack-pill">ERC-4337</span><span class="stack-pill">Account Abstraction</span><span class="stack-pill">UX</span><span class="stack-pill">Web3</span></div>
+  </div>
+  <div class="article-author-card">
+    <div class="article-author-avatar"><i class="ri-building-line"></i></div>
+    <div class="article-author-info">
+      <b>Zamra Tech Solutions Team</b>
+      <p>Global software, mobile app, and staff augmentation firm delivering high-performance digital products for startups and enterprises across the US, UK, and UAE.</p>
+    </div>
+  </div>
+  <div style="margin-top:48px">
+    <h3 style="font-size:1.2rem;margin-bottom:16px">Related Insights</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px">
+<div class="blog-card" style="box-shadow:none">
+  <div class="blog-card__thumb" style="height:140px">
+    <img src="/assets/img/blog/generativeai.webp" alt="Generative AI in the Enterprise: Implementation Framework for 2025" loading="lazy" class="blog-card__img">
+    <span class="blog-card__cat">AI & Generative AI</span>
+  </div>
+  <div class="blog-card__body" style="padding:16px">
+    <h4 style="font-size:1rem;margin:0 0 8px 0"><a href="/blog/generative-ai-enterprise-transformation-guide/" style="color:var(--ink);text-decoration:none">Generative AI in the Enterprise: Implementation Framework for 2025</a></h4>
+    <span style="font-size:0.78rem;color:var(--ink-2)">7 min read &bull; November 2, 2024</span>
+  </div>
+</div>
+<div class="blog-card" style="box-shadow:none">
+  <div class="blog-card__thumb" style="height:140px">
+    <img src="/assets/img/blog/aidevelopment.webp" alt="Architecting Autonomous AI Agents with LangGraph &amp; Multi-Tool Execution" loading="lazy" class="blog-card__img">
+    <span class="blog-card__cat">AI & Generative AI</span>
+  </div>
+  <div class="blog-card__body" style="padding:16px">
+    <h4 style="font-size:1rem;margin:0 0 8px 0"><a href="/blog/building-autonomous-ai-agents-langchain-langgraph/" style="color:var(--ink);text-decoration:none">Architecting Autonomous AI Agents with LangGraph & Multi-Tool Execution</a></h4>
+    <span style="font-size:0.78rem;color:var(--ink-2)">8 min read &bull; October 28, 2024</span>
+  </div>
+</div>
+<div class="blog-card" style="box-shadow:none">
+  <div class="blog-card__thumb" style="height:140px">
+    <img src="/assets/img/blog/aiautomation.webp" alt="AI Automation: Eliminating Repetitive Back-Office Overhead" loading="lazy" class="blog-card__img">
+    <span class="blog-card__cat">AI & Automation</span>
+  </div>
+  <div class="blog-card__body" style="padding:16px">
+    <h4 style="font-size:1rem;margin:0 0 8px 0"><a href="/blog/ai-automation-consulting-enterprise-workflows/" style="color:var(--ink);text-decoration:none">AI Automation: Eliminating Repetitive Back-Office Overhead</a></h4>
+    <span style="font-size:0.78rem;color:var(--ink-2)">6 min read &bull; October 20, 2024</span>
+  </div>
+</div></div>
+  </div>
+</div>
+</div></section>
+<section class="section"><div class="wrap"><div class="cta-band reveal">
+<div><h2>Ready to build your next breakthrough?</h2><p>Get in touch with our team today for a free technical consultation and project roadmap.</p></div>
+<div class="btn-row"><button class="btn btn--ink" data-open-quote>Get a free quote</button><a class="btn btn--ghost" href="https://calendly.com/mmammad786/30min" target="_blank" rel="noopener">Book a free call</a></div>
+</div></div></section>
+</main>
+<footer class="footer">
+<div class="wrap">
+<div class="footer__top">
+<div class="footer__brand"><a class="logo" href="/" aria-label="Zamra Tech home"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4d0c30"/><stop offset=".3" stop-color="#7d0a3e"/><stop offset=".62" stop-color="#c2014f"/><stop offset=".86" stop-color="#f0005f"/><stop offset="1" stop-color="#ff2a78"/></linearGradient><linearGradient id="ef" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7aa9" stop-opacity=".9"/><stop offset=".6" stop-color="#ff7aa9" stop-opacity=".25"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="mf"><rect width="200" height="200" fill="#fff"/><g fill="none" stroke="#000" stroke-width="10" stroke-linejoin="miter" stroke-miterlimit="1.5"><polyline points="-2,121 65,85 65,160 200,87"/><polyline points="120.5,117 120.5,46 172,18"/></g></mask></defs><polygon points="98.5,3 184,51 184,149 98.5,197 14,149 14,51" fill="url(#gf)" mask="url(#mf)"/><polygon points="98.5,3 184,51 184,149 98.5,197 14,149 14,51" fill="none" stroke="url(#ef)" stroke-width="2.5" mask="url(#mf)"/></svg><b>Zamra<span>Tech</span></b></a><p>Web, mobile, game and AI development — plus vetted engineers to extend your team.</p><p><a href="mailto:sales@zamratech.com">sales@zamratech.com</a><br><a href="tel:+15123257417">+1 512 325 7417</a></p><div class="social"><a href="https://web.facebook.com/zamrasolutions" target="_blank" rel="noopener" aria-label="Facebook"><i class="ri-facebook-fill"></i></a><a href="https://twitter.com/Zamratech" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="ri-twitter-x-line"></i></a><a href="https://instagram.com/zamratech" target="_blank" rel="noopener" aria-label="Instagram"><i class="ri-instagram-line"></i></a><a href="https://www.linkedin.com/company/zamratech/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a></div></div>
+<div><h4>Services</h4><ul><li><a href="/services/web-development/">Web Development</a></li><li><a href="/services/mobile-app-development/">App Development</a></li><li><a href="/services/game-development/">Game Development</a></li><li><a href="/services/custom-software-development-2/">Solutions</a></li><li><a href="/services/artificial-intelligence-development/">AI Development</a></li><li><a href="/digital-marketing/">Digital Marketing</a></li><li><a href="/maintenance/">Maintenance &amp; Support</a></li></ul></div>
+<div><h4>Hire developers</h4><ul><li><a href="/hire-developers/react-developers/">React Developers</a></li><li><a href="/hire-developers/nodejs-developers/">Node.js Developers</a></li><li><a href="/hire-developers/python-developers/">Python Developers</a></li><li><a href="/hire-developers/dotnet-developers/">.NET Developers</a></li><li><a href="/hire-developers/php-laravel-developers/">PHP &amp; Laravel Developers</a></li><li><a href="/hire-developers/full-stack-developers/">Full-Stack Developers</a></li><li><a href="/hire-developers/flutter-developers/">Flutter Developers</a></li><li><a href="/hire-developers/">All roles</a></li></ul></div>
+<div><h4>Staff augmentation</h4><ul><li><a href="/staff-augmentation/">How it works</a></li><li><a href="/staff-augmentation/dedicated-teams/">Dedicated teams</a></li><li><a href="/staff-augmentation/engagement-models/">Engagement models</a></li><li><a href="/hire-developers/#builder">Build your team</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="/about/">About us</a></li><li><a href="/portfolio/">Our work</a></li><li><a href="/industries/">Industries</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+</div>
+<div class="footer__offices"><div><b>USA</b><p>11427 Reed Hartman Hwy, Cincinnati, OH 45241</p><p><a href="tel:+15123257417">+1 512 325 7417</a></p></div><div><b>Dubai</b><p>Level 23, Boulevard Plaza 2, Sheikh Mohammed bin Rashid Boulevard, Dubai</p><p><a href="tel:+15123257417">+1 512 325 7417</a></p></div><div><b>United Kingdom</b><p>Level 17, Dashwood House, 69 Old Broad Street, London EC2M 1QS</p><p><a href="tel:+15123257417">+1 512 325 7417</a></p></div><div><b>Pakistan</b><p>Suite #601, 6th Floor, Pak Avenue, Karachi</p><p><a href="tel:+923009218347">+92 300 921 8347</a></p></div></div>
+<div class="footer__bottom"><span>&copy; <span id="year">2026</span> Zamra Tech. All rights reserved.</span><ul><li><a href="/terms-of-use/">Terms of use</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+</div>
+</footer>
+<div class="fab"><a class="wa" href="https://api.whatsapp.com/send?phone=14125895429&text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="ri-whatsapp-line"></i></a><button class="q" data-open-quote><i class="ri-chat-3-line"></i><span>Get a free quote</span></button></div>
+<div class="modal" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="qm-title"><div class="modal__box">
+<button class="modal__close" aria-label="Close"><i class="ri-close-line"></i></button>
+<h2 id="qm-title">Tell us what you need</h2><p class="muted">A consultant will get back to you within one business day with next steps and a rough estimate.</p>
+<form class="form" id="qm" action="/zt-forms/send.php" method="post" data-zt-form>
+<div class="field"><label for="qm-name">Your name <span class="req">*</span></label><input id="qm-name" name="name" autocomplete="name" required placeholder="Full name"></div>
+<div class="field"><label for="qm-email">Work email <span class="req">*</span></label><input id="qm-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com"></div>
+<div class="field"><label for="qm-phone">Phone or WhatsApp <span class="req">*</span></label><input id="qm-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+1 (412) 589-5429"></div>
+<div class="field"><label for="qm-interest">I'm interested in <span class="req">*</span></label><select id="qm-interest" name="interest" required><option selected>Project development</option><option>Digital marketing</option><option>Maintenance & support</option><option>Staff augmentation</option><option>Dedicated team</option><option>Something else</option></select></div>
+<div class="field"><label for="qm-budget">Budget <span class="req">*</span></label><select id="qm-budget" name="budget" required><option value="$5k - $15k" selected>$5k - $15k</option><option value="$15k - $50k">$15k - $50k</option><option value="$50k and above">$50k and above</option><option value="Monthly retainer">Monthly retainer</option></select></div>
+<div class="field"><label for="qm-start">When do you want to start? <span class="req">*</span></label><select id="qm-start" name="start" required><option value="Immediately" selected>Immediately</option><option value="In 2 weeks">In 2 weeks</option><option value="In a month">In a month</option><option value="Just exploring">Just exploring</option></select></div>
+<div class="field full"><label for="qm-msg">Tell us about your project <span class="req">*</span></label><textarea id="qm-msg" name="message" required placeholder="What are you building, who is it for, and what do you need from us?"></textarea></div>
+<div class="hp" aria-hidden="true"><label>Leave empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<input type="hidden" name="page" value="">
+<div class="full btn-row" style="align-items:center"><button class="btn btn--pink" type="submit"><i class="ri-send-plane-line"></i>Send message</button><p class="form__note">All inquiries routed to sales@zamratech.com. Reply within one business day.</p></div>
+<div class="form__status" role="status" aria-live="polite"></div>
+</form>
+</div></div>
+<div class="lightbox" aria-hidden="true"><button aria-label="Close"><i class="ri-close-line"></i></button><img src="data:," alt="Client review"></div>
+<script src="/assets/js/main.js?v=2.0.0" defer></script>
+</body>
+</html>

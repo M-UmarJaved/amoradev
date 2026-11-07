@@ -262,6 +262,24 @@
         btn.disabled = false;
         btn.innerHTML = originalLabel;
         if (window.gtag) window.gtag("event", "generate_lead");
+
+        // Smooth scroll to status feedback
+        try { status.scrollIntoView({ behavior: "smooth", block: "nearest" }); } catch (e) {}
+
+        // Floating Toast Notification
+        try {
+          var oldToast = document.querySelector(".form-toast");
+          if (oldToast) oldToast.remove();
+          var toast = document.createElement("div");
+          toast.className = "form-toast";
+          toast.innerHTML = '<i class="ri-checkbox-circle-fill"></i><div><b>Inquiry Submitted Successfully</b><p>Delivered to <b>sales@zamratech.com</b>. A consultant will reply within one business day.</p></div>';
+          document.body.appendChild(toast);
+          setTimeout(function () {
+            toast.style.opacity = "0";
+            toast.style.transition = "opacity 0.4s ease";
+            setTimeout(function () { toast.remove(); }, 400);
+          }, 6000);
+        } catch (err) {}
       };
 
       // Disptach background lead to FormSubmit to ensure real email arrives at sales@zamratech.com
