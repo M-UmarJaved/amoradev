@@ -282,11 +282,16 @@
         } catch (err) {}
       };
 
-      // Disptach background lead to FormSubmit to ensure real email arrives at sales@zamratech.com
+      // Disptach background lead to FormSubmit using token 4e991671bfed466cd1dcd7f756044185 (sales@zamratech.com)
       try {
-        fetch("https://formsubmit.co/ajax/sales@zamratech.com", {
+        var fsData = new FormData();
+        for (var pair of formData.entries()) { fsData.append(pair[0], pair[1]); }
+        fsData.append("_captcha", "false");
+        fsData.append("_template", "table");
+        fsData.append("_subject", "New Website Lead — Zamra Tech");
+        fetch("https://formsubmit.co/ajax/4e991671bfed466cd1dcd7f756044185", {
           method: "POST",
-          body: formData,
+          body: fsData,
           headers: { "Accept": "application/json" }
         }).catch(function () {});
       } catch (err) {}
