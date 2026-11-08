@@ -91,5 +91,4 @@ $log = __DIR__ . '/leads.log';
     'budget' => $budget, 'start' => $start, 'page' => $page, 'message' => $message, 'mailed' => $sent,
 ]) . "\n", FILE_APPEND | LOCK_EX);
 
-// Ensure lead is confirmed even if local sendmail binary is restricted
-respond(true);
+respond((bool)$sent, $sent ? null : 'Mail server error', $sent ? 200 : 500);
